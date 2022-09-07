@@ -1,15 +1,17 @@
-﻿namespace Movie.API.Data;
+﻿using Movie.API.Models;
+
+namespace Movie.API.Data;
 
 
 public class MoviesContextSeed
 {
     public static void SeedAsync(MoviesContext moviesContext)
     {
-        if (!moviesContext.Movie.Any())
+        if (!moviesContext.Movies.Any())
         {
-            var movies = new List<Models.Movie>
+            var movies = new List<MovieModel>
             {
-                new Models.Movie
+                new MovieModel
                 {
                     Id = 1,
                     Genre = "Drama",
@@ -19,7 +21,7 @@ public class MoviesContextSeed
                     ReleaseDate = new DateTime(1994, 5, 5),
                     Owner = "alice"
                 },
-                new Models.Movie
+                new MovieModel
                 {
                     Id = 2,
                     Genre = "Crime",
@@ -29,7 +31,7 @@ public class MoviesContextSeed
                     ReleaseDate = new DateTime(1972, 5, 5),
                     Owner = "alice"
                 },
-                new Models.Movie
+                new MovieModel
                 {
                     Id = 3,
                     Genre = "Action",
@@ -39,7 +41,7 @@ public class MoviesContextSeed
                     ReleaseDate = new DateTime(2008, 5, 5),
                     Owner = "bob"
                 },
-                new Models.Movie
+                new MovieModel
                 {
                     Id = 4,
                     Genre = "Crime",
@@ -49,7 +51,7 @@ public class MoviesContextSeed
                     ReleaseDate = new DateTime(1957, 5, 5),
                     Owner = "bob"
                 },
-                new Models.Movie
+                new MovieModel
                 {
                     Id = 5,
                     Genre = "Biography",
@@ -59,7 +61,7 @@ public class MoviesContextSeed
                     ReleaseDate = new DateTime(1993, 5, 5),
                     Owner = "alice"
                 },
-                new Models.Movie
+                new MovieModel
                 {
                     Id = 6,
                     Genre = "Drama",
@@ -69,7 +71,7 @@ public class MoviesContextSeed
                     ReleaseDate = new DateTime(1994, 5, 5),
                     Owner = "alice"
                 },
-                new Models.Movie
+                new MovieModel
                 {
                     Id = 7,
                     Genre = "Drama",
@@ -79,7 +81,7 @@ public class MoviesContextSeed
                     ReleaseDate = new DateTime(1999, 5, 5),
                     Owner = "bob"
                 },
-                new Models.Movie
+                new MovieModel
                 {
                     Id = 8,
                     Genre = "Romance",
@@ -90,7 +92,7 @@ public class MoviesContextSeed
                     Owner = "bob"
                 }
             };
-            moviesContext.Movie.AddRange(movies);
+            moviesContext.Movies.AddRange(movies);
             moviesContext.SaveChanges();
         }
     }

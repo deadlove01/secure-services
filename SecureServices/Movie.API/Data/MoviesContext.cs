@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Movie.API.Models;
 
 namespace Movie.API.Data;
 
@@ -9,5 +10,5 @@ public class MoviesContext : DbContext
     {
     }
 
-    public DbSet<Models.Movie> Movie { get; set; }
+    public DbSet<MovieModel> Movies { get; set; }
 }
