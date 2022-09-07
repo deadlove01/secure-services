@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Movie.API.Data;
 using Movie.API.Models;
@@ -8,6 +9,7 @@ namespace Movie.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize("RaviClientPolicy")]
 // [Authorize("ClientIdPolicy")]
 public class MoviesController : ControllerBase
 {

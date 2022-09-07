@@ -1,4 +1,5 @@
 using Movie.API.Configuration;
+using Movie.API.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,7 +24,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
+// app.UseMiddleware<JwtMiddleware>();
 
 app.MapControllers();
 
