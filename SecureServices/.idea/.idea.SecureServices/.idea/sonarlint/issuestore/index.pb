@@ -1,10 +1,6 @@
 
 b
 2Movie.API/Controllers/WeatherForecastController.cs,4\6\4604e94acb3adb04716cbd3505d5b24626efcb13
-O
-Movie.API/Data/MoviesContext.cs,0\3\0354450975e15c23e9f9be69cab8ebc9239c6590
-S
-#Movie.API/Data/MoviesContextSeed.cs,e\6\e6ef31fee9e4e0c9a76440323d3416f8752e8bba
 J
 Movie.API/Movie.API.csproj,e\b\eb0559bdf3c93b99eeb1872b20bff3a24fb9c5d6
 T
@@ -13,8 +9,6 @@ X
 (Movie.API/Properties/launchSettings.json,1\7\1777cafe070bfa8d25ccedcfbd6c685bb25aab50
 N
 Movie.API/Models/MovieModel.cs,c\0\c05235a841e89fafc19737d2e45cd8e2cb969ad4
-D
-Movie.API/Program.cs,9\3\9349805de0d85d018cc5b0b046d29d186f197c45
 V
 &Movie.API/Middlewares/JwtMiddleware.cs,a\5\a5462958d7476daa7d9c8303b59482b49aace55f
 M
@@ -23,8 +17,6 @@ M
 +Movie.API/Controllers/IdentityController.cs,f\c\fc919706e168d88f5885df8aa80fb5ca748abef3
 X
 (Movie.API/Controllers/MovieController.cs,5\8\58425c686a001765ff2c49089270e2b0371c0cec
-Q
-!Movie.API/Configuration/Config.cs,7\6\7632ca6896f542d0edcac8b8a775b9ba165afd89
 U
 %MovieClient/Views/Movie/Create.cshtml,6\f\6f8a97347660452f77ad665206a84a795a10a1fb
 i
