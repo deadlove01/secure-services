@@ -11,6 +11,7 @@ public static class ConfigDI
             .AddInMemoryApiScopes(Config.ApiScopes)
             .AddInMemoryApiResources(Config.ApiResources)
             .AddTestUsers(Config.TestUsers)
+            .AddInMemoryIdentityResources(Config.IdentityResources)
             .AddDeveloperSigningCredential()
             ;
 

@@ -26,10 +26,10 @@ public class Config
             {
                 ClientId = "movies_mvc_client",
                 ClientName = "Movies MVC Web App",
-                // AllowedGrantTypes = GrantTypes.Hybrid,
-                AllowedGrantTypes = GrantTypes.Code,
+                AllowedGrantTypes = GrantTypes.Hybrid,
                 RequirePkce = false,
                 AllowRememberConsent = false,
+                
                 RedirectUris = new List<string>()
                 {
                     "https://localhost:5002/signin-oidc"
@@ -46,10 +46,10 @@ public class Config
                 {
                     IdentityServerConstants.StandardScopes.OpenId,
                     IdentityServerConstants.StandardScopes.Profile,
-                    // IdentityServerConstants.StandardScopes.Address,
-                    // IdentityServerConstants.StandardScopes.Email,                           
-                    // "movieAPI",
-                    // "roles"
+                    IdentityServerConstants.StandardScopes.Address,
+                    IdentityServerConstants.StandardScopes.Email,                           
+                    "movieAPI",
+                    "roles"
                 }
             }
         };
@@ -63,7 +63,7 @@ public class Config
     public static IEnumerable<ApiResource> ApiResources =>
         new ApiResource[]
         {
-            new ApiResource("movieAPI", "Movie API")
+            // new ApiResource("movieAPI", "Movie API")
         };
     
     public static IEnumerable<IdentityResource> IdentityResources =>
@@ -71,12 +71,12 @@ public class Config
         {
             new IdentityResources.OpenId(),
             new IdentityResources.Profile(),
-            // new IdentityResources.Address(),
-            // new IdentityResources.Email(),
-            // new IdentityResource(
-            //     "roles",
-            //     "Your role(s)",
-            //     new List<string>() { "role" })
+            new IdentityResources.Address(),
+            new IdentityResources.Email(),
+            new IdentityResource(
+                "roles",
+                "Your role(s)",
+                new List<string>() { "role" })
         };
     
     

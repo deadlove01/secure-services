@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,32 +13,35 @@ using MovieClient.Models;
 namespace MovieClient.Controllers
 {
     
-     // [Authorize]
+     [Authorize]
     public class MovieController : Controller
     {        
         private readonly IMovieApiService _movieApiService;
+        private readonly ILogger<MovieController> _logger;
         private readonly MovieClientContext _movieClientContext;
 
-        public MovieController(IMovieApiService movieApiService)
+        public MovieController(IMovieApiService movieApiService,
+            ILogger<MovieController> logger)
         {
             _movieApiService = movieApiService ?? throw new ArgumentNullException(nameof(movieApiService));
+            _logger = logger;
         }
 
         // GET: Movies
         public async Task<IActionResult> Index()
         {
-            // await LogTokenAndClaims();
+            await LogTokenAndClaims();
             return View(await _movieApiService.GetMovies());
         }
         public async Task LogTokenAndClaims()
         {
             var identityToken = await HttpContext.GetTokenAsync(OpenIdConnectParameterNames.IdToken);
 
-            Debug.WriteLine($"Identity token: {identityToken}");
+            _logger.LogInformation($"Identity token: {identityToken}");
 
             foreach (var claim in User.Claims)
             {
-                Debug.WriteLine($"Claim type: {claim.Type} - Claim value: {claim.Value}");
+                _logger.LogInformation($"Claim type: {claim.Type} - Claim value: {claim.Value}");
             }
         }
 
@@ -191,7 +195,7 @@ namespace MovieClient.Controllers
         public async Task Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            // await HttpContext.SignOutAsync(OpenIdConnectDefaults.AuthenticationScheme);            
+            await HttpContext.SignOutAsync(OpenIdConnectDefaults.AuthenticationScheme);            
         }
 
     }

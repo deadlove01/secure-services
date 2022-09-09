@@ -21,7 +21,21 @@ public class MovieApiService : IMovieApiService
     
     public async Task<IEnumerable<Movie>> GetMovies()
     {
-        return await _movieClientContext.Movies.ToListAsync();
+
+        return await Task.FromResult(new List<Movie>
+        {
+            new Movie
+            {
+                Id = 1,
+                Genre = "Comics",
+                Owner = "Ravi",
+                Rating = "9.2",
+                Title = "Avenger",
+                ImageUrl = "image/png",
+                ReleaseDate = DateTimeOffset.Now.DateTime
+            }
+        });
+        // return await _movieClientContext.Movies.ToListAsync();
         
         var httpClient = _httpClientFactory.CreateClient("MovieAPIClient");
 
