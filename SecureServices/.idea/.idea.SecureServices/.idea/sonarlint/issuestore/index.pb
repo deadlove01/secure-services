@@ -65,5 +65,3 @@ U
 %MovieClient/Views/_ViewImports.cshtml,1\4\14f2cb83728d286085dd7b416c7b8eb655361544
 T
 $MovieClient/Views/Movie/Index.cshtml,a\1\a1b40b1712395c47ec59aa58bd32fd839a4f05c0
-F
-MovieClient/Program.cs,4\1\4130a10b00e3f595c4504b5cd43283941766f96a
